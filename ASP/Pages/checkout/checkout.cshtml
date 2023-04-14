@@ -1,0 +1,70 @@
+﻿@page
+@model ASP.Pages.checkout.checkoutModel
+@{
+}
+
+<h1>Your order!</h1>
+@{
+	var im = "~/images/" + (@Model.ImageTitle + ".jpg");
+}
+
+<div class="col-4 mx-auto mb-lg-1" style="background: white; border-radius: 20px; text-align: center">
+	<img src=@im class="w-100 mainImage2" asp-append-version="true" />
+	<p>Your order for the @Model.BurgerName will start being prepared after confirming order!</p>
+	<p>Total price for your order is: @Model.BurgerPrice zł</p>
+	@{
+		if (@Model.burger1.Tomato)
+		{
+			<p>+@Model.Tomatox x Tomato	@Model.Tomatox x 2 zł</p>
+		}
+		if (@Model.burger1.Cheese)
+		{
+			<p>+@Model.Cheesex x Cheese	@Model.Cheesex x 3zł</p>
+		}
+		if (@Model.burger1.Pickles)
+		{
+			<p>+@Model.Picklesx x Pickles	@Model.Picklesx x 1zł</p>
+		}
+		if (@Model.burger1.Salad)
+		{
+			<p>+@Model.Saladx x Salad	@Model.Saladx x 3zł</p>
+		}
+		if (@Model.burger1.onion)
+		{
+			<p>+@Model.Onionx x Onion	@Model.Onionx x 1zł</p>
+		}
+		if (@Model.burger1.Meat)
+		{
+			<p>+@Model.Meatx x Meat	@Model.Meatx x 15zł</p>
+		}
+		if (@Model.burger1.VegeMeat)
+		{
+			<p>+@Model.VegeMeatx x VegeMeat	@Model.VegeMeatx x 10zł</p>
+		}
+		if (@Model.burger1.Mushroom)
+		{
+			<p>+@Model.Mushroomx x Mushroom	@Model.Mushroomx x 5zł</p>
+		}
+		if (@Model.burger1.Ham)
+		{
+			<p>+@Model.Hamx x Ham	@Model.Hamx x 4zł</p>
+		}
+		if (@Model.burger1.Cola)
+		{
+			<p>+Cola(0.5L) + Fries(300g)   10zł</p>
+		}
+
+	}
+	<div class="row">
+			<form method="post" id="myForm">
+					<label class="form-label center-block"><strong>Delivery Address</strong></label>
+					<input id="adres" type="text" class="form-control center-block" style="width: 350px" asp-for="Address" placeholder="[street] [number]" required />
+					<label class="form-label"><strong>Phone Number</strong></label>
+					<input id="tel" type="tel" class="form-control center-block" style="width: 350px" asp-for="Phone" pattern="[0-9]{9}" placeholder="123456789" required />
+					<button id="confirm" class="btn btn-primary mt-1 center-block" type="submit" style="width:100px">Confirm Order</button>
+			</form>
+	</div>
+	<br />	
+</div>
+
+

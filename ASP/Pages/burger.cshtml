@@ -1,0 +1,51 @@
+﻿@page
+@model ASP.Pages.burgerModel
+@{
+}
+
+<div class="text-center">
+    <div class="mainText">
+        <h1 class="display-4 text-capitalize text-black"><strong>You can find here all our burgers</strong></h1>
+        <h2 class="mainSubTitle"><strong>Choose your favourite burger or make your own!</strong></h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mb-5">
+                <div class="menuDiv w-100 row makeYourOwnDiv background-image" style="background-image: url(images/own.jpg)">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-8 align-items-center" style="background-color:gray">
+                        <div class="align-middle makeYourOwnText">
+                            <h3 style="text-align:left;">Create your own burger</h3>
+                            <p style="text-align:left;">Make your own burger with our BurgerMaker</p>
+                            <a class="btn btn-primary" style="float:left;" asp-area="" asp-page="forms/custom">Try now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @{
+                string[] burs = new string[] { "Bison Burger", "CheeseBurger", "Chili Burger", "Dip Burger", "Juicy Burger", "Elk Burger", "Fries Burger", "Onion Burger" };
+                int i = 0;
+                var im = "";
+
+            }
+            @foreach (var bur in Model.fakeburgerDB)
+            {
+                if(bur.ImageTitle == "dzusi")
+                    im = "~/images/" + (bur.ImageTitle + ".png");
+                else
+                    im = "~/images/" + (bur.ImageTitle + ".jpg");
+
+                <div class="mb-xl-5">
+                    <h2><strong>@burs[i]</strong></h2>
+                    <img src="@im" class="w-100" asp-append-version=true />
+                    <a class="btn btn-primary mt-1 btn-lg" asp-area="" asp-page="checkout/checkout" asp-route-ImageTitle="@bur.ImageTitle" asp-route-BurgerPrice ="@bur.FinalPrice" asp-route-BurgerName="@bur.BurgerName">Get Just @burs[i]: @bur.FinalPrice zł</a>
+                    <a class="btn btn-primary mt-1 btn-lg" asp-area="" asp-page="checkout/checkout" asp-route-ImageTitle="@bur.ImageTitle" asp-route-BurgerPrice="@(bur.FinalPrice+10)" asp-route-BurgerName="@(bur.BurgerName + "+ (Pepsi(0.5L) + Fries(300g)")">Get @burs[i] + (Pepsi(0.5L) + Fries(300g): @(bur.FinalPrice + 10) zł</a>
+                    <br />
+                </div>
+                i++;
+            } 
+        </div>
+    </div> 
+</div>

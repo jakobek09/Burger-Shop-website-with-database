@@ -1,0 +1,58 @@
+﻿@page
+@model ASP.Pages.OrdersModel
+@{
+}
+
+<h3><strong>Orders</strong></h3>
+<hr />
+
+<table class="table">
+	<thead>
+		<tr>
+			<th style="background:white">
+				ID
+			</th>
+			<th style="background:white">
+				Burger Name
+			</th style="background:white">
+			<th style="background:white">
+				Price
+			</th>
+			<th style="background:white">
+				Address
+			</th>
+			<th style="background:white">
+				Phone
+			</th>
+			<th style="background:white">
+				Ingredients
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var order in Model.BurgerOrders)
+		{
+			<tr>
+				<td style="background:white">
+					@order.Id
+				</td>
+				<td style="background:white">
+					@order.Name
+				</td>
+				<td style="background:white">
+					@order.Price
+				</td>
+				<td style="background:white">
+					@order.Address
+				</td>
+				<td style="background:white">
+					@order.Phone
+				</td>
+				<td style="background:white">
+					@order.Ingredients
+				</td>
+			</tr>
+		}
+
+	</tbody>
+</table>

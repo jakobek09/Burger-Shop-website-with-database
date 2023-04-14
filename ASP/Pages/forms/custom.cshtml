@@ -1,0 +1,43 @@
+﻿@page
+@model ASP.Pages.forms.customModel
+@{
+}
+
+<div class="text-center container">
+	<h1>Create your own burger</h1>
+	<form method="post" class="mx-auto mt-5 px-5 pt-5 pb-5 rounded-5 bg-light col-4">
+		<input type="text" asp-for="Burger.BurgerName" placeholder="Give Burger a name" />
+		<br/>
+		<input type="checkbox" asp-for="Burger.Tomato" placeholder="Tomato" />Tomato	2zł x 
+		<input type="number" asp-for="Tomatox" style="width:50px" min="1" max="10" value="1" pattern="/d+"/>
+		<br />
+		<input type="checkbox" asp-for="Burger.Salad" placeholder="Salad" />Salad	3zł
+		<input type="number" asp-for="Saladx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Ham" placeholder="Ham" />Ham		4zł
+		<input type="number" asp-for="Hamx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Cheese" placeholder="Cheese" />Cheese	3zł
+		<input type="number" asp-for="Cheesex" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Pickles" placeholder="Pickles" />Pickles		1zł
+		<input type="number" asp-for="Picklesx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Mushroom" placeholder="Mushroom" />Mushroom	5zł
+		<input type="number" asp-for="Mushroomx" style="width:50px" min="1" max="10" value="1"/>
+		<br />
+		<input type="checkbox" asp-for="Burger.onion" placeholder="onion" />Onion	1zł
+		<input type="number" asp-for="Onionx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.VegeMeat" placeholder="VegeMeat" />VegeMeat	10zł
+		<input type="number" asp-for="VegeMeatx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Meat" placeholder="Meat" />Meat	15zł
+		<input type="number" asp-for="Meatx" style="width:50px" min="1" max="10" value="1" />
+		<br />
+		<input type="checkbox" asp-for="Burger.Cola" placeholder="Cola" />Cola(0.5l) + Fries(300g)	10zł
+		<br />
+		<button class="btn btn-primary mt-1" type="submit" >Order My Burger</button>
+		<br/>
+	</form>
+</div>
